@@ -4,7 +4,9 @@ a simple CLI based file/paste sharing application.
 ```
 
 ### Installation
-- you can directly install the application here. If using Unix then use this command: ```chmod+x ./flxp && sudo mv ./flxp /usr/bin/``` to access it globally.
+- you can directly install the application here. If using Unix then use this command: 
+  ```chmod+x ./flxp && sudo mv ./flxp /usr/bin/``` 
+  to access it globally.
 - or use the methods below to compile it yourself.
 
 - #### Requirements
