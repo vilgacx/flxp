@@ -58,7 +58,7 @@ async fn pastebin(text: &String) {
     ];
     let client = reqwest::Client::new();
     let res = client
-        .post("https://pastebin.com/api/api_post.`php")
+        .post("https://pastebin.com/api/api_post.php")
         .form(&params)
         .send()
         .await
