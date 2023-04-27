@@ -4,7 +4,7 @@ a simple CLI based file/paste sharing application.
 ```
 
 ### Installation
-- you can directly install the application here. If using Unix then use this command:* ```chmod+x ./flxp && sudo mv ./flxp /usr/bin/``` to access it globally.
+- you can directly install the application here. If using Unix then use this command: ```chmod+x ./flxp && sudo mv ./flxp /usr/bin/``` to access it globally.
 - or use the methods below to compile it yourself.
 
 - #### Requirements
@@ -24,6 +24,6 @@ a simple CLI based file/paste sharing application.
   - Upload: ```flxp -f <PATH_TO_FILE>```
 
 #### Feature to Add:
-- Customization for File/Paste (e.g. : expiration, etc..).
+- File/Paste customization (e.g. : expiration, etc..).
 - Encryption.
 - Downloading.
