@@ -1,7 +1,10 @@
 use confy;
 use reqwest;
+use reqwest::multipart::{Form, Part};
 use serde_derive::{Deserialize, Serialize};
 use std::env::args;
+use std::path::Path;
+use tokio::fs;
 
 #[derive(Debug, Serialize, Deserialize)]
 struct FlxpConfig {
@@ -21,6 +24,8 @@ fn main() {
     for (index, arg) in args.iter().enumerate() {
         if arg == "-p" {
             pastebin(&args[index + 1]);
+        } else if arg == "-f" {
+            zeroxzero(&args[index + 1]);
         } else if arg == "--pbk" {
             set_key(&args[index + 1]).expect("Error");
         }
@@ -53,7 +58,7 @@ async fn pastebin(text: &String) {
     ];
     let client = reqwest::Client::new();
     let res = client
-        .post("https://pastebin.com/api/api_post.php")
+        .post("https://pastebin.com/api/api_post.`php")
         .form(&params)
         .send()
         .await
@@ -64,9 +69,44 @@ async fn pastebin(text: &String) {
     match res.status() {
         reqwest::StatusCode::OK => {
             let result = res.text().await;
-            println!("Response");
-            println!("{:?}", result);
+            let result = result.unwrap();
+            println!("{}", &result.as_str());
+            println!("{}/raw", &result.as_str());
         }
         _ => println!("Error"),
     };
+}
+
+#[tokio::main]
+async fn zeroxzero(path: &String) {
+    match Path::new(&path).is_file() {
+        true => {
+            let file_name = String::from(Path::new(&path).file_name().unwrap().to_str().unwrap());
+
+            let file = fs::read(&path).await.unwrap();
+            let file_part = Part::bytes(file).file_name(file_name);
+            let form = Form::new().part("file", file_part);
+            
+            let client = reqwest::Client::new();
+
+            let res = client
+                .post("https://0x0.st")
+                .multipart(form)
+                .send()
+                .await
+                .unwrap();
+
+            println!("{}", res.status());
+
+            match res.status() {
+                reqwest::StatusCode::OK => {
+                    let result = res.text();
+                    let final_result = result.await.unwrap();
+                    println!("{}", &final_result.as_str());
+                }
+                _ => println!("Error"),
+            };
+        }
+        false => println!("File doesn't exist"),
+    }
 }
