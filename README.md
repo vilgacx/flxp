@@ -29,5 +29,6 @@ a simple CLI based file/paste sharing application, developed in rust lang.
 - Downloading.
 
 ```
-It's probably my first rust based project so for any suggestions & queries DM on discord: xorvet#2190
+It's probably my first rust based project so for any suggestions & queries DM on discord:
+xorvet#2190
 ```
