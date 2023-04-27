@@ -7,8 +7,8 @@ a simple CLI based file/paste sharing application, developed in rust lang.
 
 - #### Requirements
   - cargo
-- #### Setup
-  - ```cargo install --git https://github.com/xorvet/flxp```
+
+- ```cargo install --git https://github.com/xorvet/flxp```
 
 ### Usage
 - **Paste**
