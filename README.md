@@ -5,10 +5,11 @@ a simple CLI based file/paste sharing application, developed in rust lang.
 
 ### Installation
 
-- #### Requirements
-  - cargo
+- Requirements: cargo
 
-- ```cargo install --git https://github.com/xorvet/flxp```
+```
+cargo install --git https://github.com/xorvet/flxp
+```
 
 ### Usage
 - **Paste**
