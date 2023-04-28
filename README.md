@@ -1,6 +1,6 @@
 # flxp
 ```
-a simple CLI based file/paste sharing application, developed in rust lang.
+a simple CLI based file/paste sharing application, written in rust.
 ```
 
 ### Installation
