@@ -57,17 +57,16 @@ async fn pastebin(text: &String) {
         ("api_option", "paste".to_string()),
     ];
     let client = reqwest::Client::new();
-    let res = client
-        .post("https://pastebin.com/api/api_post.php")
+    let res = client.post("https://pastebin.com/api/api_post.php")
         .form(&params)
         .send()
         .await
         .unwrap();
 
-    println!("{}", res.status());
 
     match res.status() {
-        reqwest::StatusCode::OK => {
+        reqwest::StatusCode::OK => { 
+            println!("Response OK");
             let result = res.text().await;
             let result = result.unwrap();
             println!("{}", &result.as_str());
@@ -89,17 +88,15 @@ async fn zeroxzero(path: &String) {
             
             let client = reqwest::Client::new();
 
-            let res = client
-                .post("https://0x0.st")
+            let res = client.post("https://0x0.st")
                 .multipart(form)
                 .send()
                 .await
                 .unwrap();
 
-            println!("{}", res.status());
-
             match res.status() {
                 reqwest::StatusCode::OK => {
+                    println!("Response OK");
                     let result = res.text();
                     let final_result = result.await.unwrap();
                     println!("{}", &final_result.as_str());
