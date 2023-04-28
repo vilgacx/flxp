@@ -70,7 +70,7 @@ async fn pastebin(text: &String) {
             let result = res.text().await;
             let result = result.unwrap();
             println!("{}", &result.as_str());
-            println!("{}/raw", &result.as_str());
+            println!("https://pastebin.com/raw/{}", &result.as_str()[21..]);
         }
         _ => println!("Error"),
     };
