@@ -43,7 +43,7 @@ fn set_key(key: &String) -> Result<(), confy::ConfyError> {
 fn get_key() -> FlxpConfig {
     let config: FlxpConfig = match confy::load("flxp", None) {
         Ok(key) => key,
-        Err(e) => panic!("Error: {}", e),
+        Err(_e) => panic!("Error while fetching key"),
     };
     config
 }
