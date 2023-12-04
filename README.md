@@ -23,8 +23,3 @@ cargo install --git https://github.com/xorvet/flxp
 - Encryption.
 - Downloading.
 - Help/Usage.
-
-```
-It's probably my first rust based project, so for any suggestions or queries, DM me on Discord:
-xorvet#2190
-```
